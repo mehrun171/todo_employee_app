@@ -1,16 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
+import TodoList from './components/TodoList';
+import EmployeeList from './components/EmployeeList';
+import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <h1>Welcome to the App</h1>
-      <nav>
-        <Link to="/todolist">To-Do List</Link> | 
-        <Link to="/employeelist">Employee List</Link>
+    <div className="app-container">
+      <nav className="navbar">
+        <Link to="/todolist" className="nav-link">To-Do List</Link>
+        <Link to="/employeelist" className="nav-link">Employee List</Link>
       </nav>
+
+      <Routes>
+        <Route path="/todolist" element={<TodoList />} />
+        <Route path="/employeelist" element={<EmployeeList />} />
+      </Routes>
     </div>
   );
-};
+}
 
 export default App;
